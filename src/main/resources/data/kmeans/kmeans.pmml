@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_3" version="4.3">
+	<Header>
+		<Application name="JPMML-R" version="1.2.13"/>
+		<Timestamp>2017-08-24T09:22:12Z</Timestamp>
+	</Header>
+	<DataDictionary>
+		<DataField name="field_0" optype="continuous" dataType="double"/>
+		<DataField name="field_1" optype="continuous" dataType="double"/>
+		<DataField name="field_2" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<ClusteringModel functionName="clustering" modelClass="centerBased" numberOfClusters="2">
+		<MiningSchema>
+			<MiningField name="field_0"/>
+			<MiningField name="field_1"/>
+			<MiningField name="field_2"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="cluster" optype="categorical" dataType="string" feature="predictedValue"/>
+			<OutputField name="affinity_1" optype="continuous" dataType="double" feature="affinity" value="1"/>
+			<OutputField name="affinity_2" optype="continuous" dataType="double" feature="affinity" value="2"/>
+		</Output>
+		<ComparisonMeasure kind="distance" compareFunction="absDiff">
+			<squaredEuclidean/>
+		</ComparisonMeasure>
+		<ClusteringField field="field_0"/>
+		<ClusteringField field="field_1"/>
+		<ClusteringField field="field_2"/>
+		<Cluster id="1" name="1" size="3">
+			<Array type="real">9.1 9.1 9.1</Array>
+		</Cluster>
+		<Cluster id="2" name="2" size="3">
+			<Array type="real">0.10000000000000002 0.10000000000000002 0.10000000000000002</Array>
+		</Cluster>
+	</ClusteringModel>
+</PMML>
